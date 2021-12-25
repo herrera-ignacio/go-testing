@@ -3,15 +3,14 @@ package integration
 import (
 	"fmt"
 	"github.com/herrera-ignacio/go-testing/src/api/services"
+	"github.com/stretchr/testify/assert"
 	"sort"
 	"testing"
 )
 
 func TestConstants(t *testing.T) {
 	// We can only test public constants from outside the package
-	if services.PublicConst != "public" {
-		t.Error("privateConst should be 'private'")
-	}
+	assert.EqualValues(t, services.PublicConst, "public")
 }
 
 func TestSort(t *testing.T) {
@@ -43,14 +42,11 @@ func TestSort(t *testing.T) {
 			fmt.Println(tt.want)
 
 			// Validation
-			if len(tt.args.elements) != len(tt.want) {
-				t.Error("Length should match")
-			}
+			assert.NotNil(t, tt.args.elements)
+			assert.EqualValues(t, len(tt.want), len(tt.args.elements))
 
 			for i, val := range tt.args.elements {
-				if val != tt.want[i] {
-					t.Errorf("Should match %d and %d", val, tt.want[i])
-				}
+				assert.EqualValues(t, tt.want[i], val)
 			}
 		})
 	}
