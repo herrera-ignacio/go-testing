@@ -3,6 +3,7 @@ package integration
 import (
 	"fmt"
 	"github.com/herrera-ignacio/go-testing/src/api/services"
+	"sort"
 	"testing"
 )
 
@@ -52,5 +53,21 @@ func TestSort(t *testing.T) {
 				}
 			}
 		})
+	}
+}
+
+func BenchmarkTestSort(b *testing.B) {
+	elements := []int{9, 7, 5, 3, 1, 2, 4, 6, 8, 0}
+
+	for i := 0; i < b.N; i++ {
+		services.Sort(elements)
+	}
+}
+
+func BenchmarkTestSTLSort(b *testing.B) {
+	elements := []int{9, 7, 5, 3, 1, 2, 4, 6, 8, 0}
+
+	for i := 0; i < b.N; i++ {
+		sort.Ints(elements)
 	}
 }
