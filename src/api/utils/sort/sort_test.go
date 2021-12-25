@@ -7,7 +7,7 @@ import (
 
 func TestBubbleSortOrderDESC(t *testing.T) {
 	// Init
-	elements := []int{9,7,5,3,1,2,4,6,8,0}
+	elements := []int{9, 7, 5, 3, 1, 2, 4, 6, 8, 0}
 	fmt.Println("Before", elements)
 
 	// Execution
@@ -38,9 +38,9 @@ func TestBubbleSort(t *testing.T) {
 		{
 			name: "testing desc",
 			args: args{
-				elements: []int{9,7,5,3,1,2,4,6,8,0},
+				elements: []int{9, 7, 5, 3, 1, 2, 4, 6, 8, 0},
 			},
-			want: []int{9,8,7,6,5,4,3,2,1,0},
+			want: []int{9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
 		},
 	}
 	for _, tt := range tests {
